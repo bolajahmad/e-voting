@@ -1,8 +1,10 @@
 import React from 'react';
+import { Router } from '@reach/router'
 
 import { GlobalStyle } from './App.styles'
 
 import Signup from './components/signup'
+import VotingPage from './components/votingPage'
 
 
 function App() {
@@ -10,7 +12,11 @@ function App() {
     <>
       <GlobalStyle />
 
-        <Signup />
+      <Router>
+        <Signup path='/' />
+
+        <VotingPage path='/voting-page' />
+      </Router>
     </>
   );
 }

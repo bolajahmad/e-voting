@@ -7,7 +7,7 @@ export const Div = styled.div`
     justify-content: center;
     margin: 1em auto;
     font-size: 2rem;
-    color: yellow;
+    color: rgb(87, 87, 1);
     background: white;
     border: 0.0625em solid black;
     border-radius: 50%;
@@ -16,6 +16,7 @@ export const Div = styled.div`
 `
 
 export const Span = styled.span`
-    color: yellow;
-    text-shadow: 5px -5px 0.25px orange inset;
+    color: rgb(87, 87, 1);
+    text-shadow: 0.03em -0.03em 0.15em rgb(192, 192, 192),
+                -0.03em 0.03em 0.15em rgb(192, 192, 192);
 `

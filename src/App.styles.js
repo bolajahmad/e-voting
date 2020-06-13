@@ -10,6 +10,14 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     background: rgba(226, 158, 226, 0.355);
-    color: rgba(129, 33, 129, 0.998);
+    color: rgb(99, 46, 27);
+
+    a {
+      text-decoration: none;
+    }
+
+    li {
+      list-style: none;
+    }
   }
 `

@@ -1,17 +1,35 @@
-import React from 'react'
+import React, { useState, useRef } from 'react'
 
-import { Div, Label, Input } from './selectFile.styles'
+import { Form, Label, Input } from './selectFile.styles'
 
 
-const UploadFile = () => {
+const UploadFile = ({ children, ...otherProps }) => {
+    const [values, setValues] = useState([]);
+
+    const inputRef = useRef();
+
+    const handleChange = (e) => {
+        e.preventDefault();
+
+        var fileCount = inputRef.current.files,
+            uploads = document.getElementById("uploads");
+    }
+
     return (
-        <Div>
-            <Label htmlFor="uploadFile">
-                Select file...
-            </Label>
+        <>
+            <ul id="uploads">
+            </ul>
 
-            <Input type="file" name="uploadFile" id="uploadFile" />
-        </Div>
+            <Form enctype="multipart/form-data">
+                <Label as="label" htmlFor="uploadFile" id="uploadLabel">
+                    {children}
+                </Label>
+
+                <Input type="file" name="uploadFile"
+                    id="uploadFile" ref={inputRef} onChange={handleChange}
+                />
+            </Form>
+        </>
     )
 }
 

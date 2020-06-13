@@ -1,15 +1,13 @@
 import React from 'react'
 
-import { Div, StyledButton } from './buttons.styles'
+import { StyledButton } from './buttons.styles'
 
 
-const Button = ({ onClick, children }) => {
+const Button = ({ onClick, children, otherProps }) => {
     return (
-        <Div>
-            <StyledButton onClick={onClick}>
-                {children}
-            </StyledButton>
-        </Div>
+        <StyledButton onClick={onClick} {...otherProps}>
+            {children}
+        </StyledButton>
     )
 }
 

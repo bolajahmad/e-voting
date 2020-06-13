@@ -1,10 +1,5 @@
 import styled from 'styled-components'
 
-
-export const Div = styled.div`
-    display: contents;
-`
-
 export const StyledButton = styled.button`
     height: 3em;
     width: 100%;
@@ -16,13 +11,6 @@ export const StyledButton = styled.button`
     transition: all 1s ease;
 
     :focus, :hover {
-        transform: scale(1.1);
+        transform: scale(1.02);
     }
 `
-
-/**display: flex;
-    align-items: start;
-    margin: 1em 0;
-    padding: 0.2em;
-    height: 3em;
-    width: auto; */
