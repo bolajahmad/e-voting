@@ -27,16 +27,19 @@ export const Div = styled.div`
 `
 
 export const Input = styled.input`
+    box-sizing: border-box;
     width: 80%;
     height: 3em;
     font-size: 1rem;
-    background: rgba(236, 226, 132, 0.425);
+    background: rgba(187, 191, 209, 0.425);
     border: 0.02em solid rgba(129, 33, 129, 0.675);
     transition: all 0.5s ease;
+    color: rgb(99, 46, 27);
+    padding: 1em;
 
     &:focus, &:hover {
         outline: 0.02em solid rgba(129, 33, 129, 0.675);
-        background: rgba(236, 226, 132, 0.825);
+        background: rgba(187, 191, 209, 0.825);
     }
 `
 
