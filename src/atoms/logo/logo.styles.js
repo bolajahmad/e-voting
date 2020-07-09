@@ -12,5 +12,5 @@ export const Div = styled.div`
 `
 
 export const StyledLink = styled(Link)`
-    
+    background: none;
 `

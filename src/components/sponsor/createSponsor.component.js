@@ -1,6 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
+import axios from 'axios'
 import { useStep } from 'react-hooks-helper'
+
+import { getCountries } from '../../helper-functions/get-countries'
 
 import { Wrapper, FormBox, Form, SelectBox, SpecialButton } from './createSponsor.styles'
 
@@ -13,8 +16,24 @@ import Navbar from '../../molecules/navbar'
 
 const CreateSponsor = () => {
     const [ isFemale, setIsFemale ] = useState(false);
+    const [ countries, setCountries ] = useState([]);
 
     const { index, navigation: { next, previous } } = useStep({steps: 10});
+
+    useEffect(() => {
+        axios.get("http://restcountries.eu/rest/v2/all")
+        .then(res => {
+            var countryData = res.data;
+            /* console.log(countryData); */
+            countryData.map((country, index) => {
+                console.log(country.name);
+                
+                setCountries(countries => [...countries, country.name]);
+                console.log(countries);
+            })
+            console.log(countries)
+        })
+    }, [countries])
 
     return (
         <Wrapper>
@@ -169,17 +188,13 @@ const CreateSponsor = () => {
                            </InputField>
 
                            <datalist id="countries">
-                               <option value="Afghanistan" />
-                               <option value="Brazil" />
-                               <option value="China" />
-                               <option value="Denmark" />
-                               <option value="Egypt" />
-                               <option value="Hungary" />
-                               <option value="Germany" />
-                               <option value="Nigeria" />
-                               <option value="Ghana" />
-                               <option value="Japan" />
-                               <option value="USA" />
+                               {
+                                   countries.map((country, i) => {
+                                       return (
+                                           <option value={country} key={i} />
+                                       )
+                                   })
+                               }
                            </datalist>
                        </Form>
                    ) 
