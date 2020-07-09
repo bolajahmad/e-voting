@@ -3,8 +3,8 @@ import { Router } from '@reach/router'
 
 import { GlobalStyle } from './App.styles'
 
-import Signup from './components/signup'
-import VotingPage from './components/votingPage'
+import Home from './components/home'
+import CreateSponsor from './components/sponsor'
 
 
 function App() {
@@ -13,9 +13,9 @@ function App() {
       <GlobalStyle />
 
       <Router>
-        <Signup path='/' />
+        <Home path='/' />
 
-        <VotingPage path='/voting-page' />
+        <CreateSponsor path='/sponsor' />
       </Router>
     </>
   );

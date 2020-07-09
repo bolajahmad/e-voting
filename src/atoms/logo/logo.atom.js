@@ -1,12 +1,14 @@
 import React from 'react'
 
-import { Div, Span } from './logo.styles'
+import { Div, StyledLink } from './logo.styles'
 
 
 export const Logo = () => {
     return (
         <Div>
-            <Span>X-way</Span>
+            <StyledLink to="/">
+                <img src={require("../../images/logo.png")} alt="logo" height="50px" width="200px" />
+            </StyledLink>
         </Div>
     )
 }

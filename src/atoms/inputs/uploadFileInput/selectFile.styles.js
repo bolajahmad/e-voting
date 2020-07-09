@@ -17,7 +17,16 @@ export const Label = styled(StyledButton)`
     color: rgb(99, 46, 27);
     background: rgba(99, 46, 27, 0.265);
     border-radius: 1em;
-    padding: auto;
+    text-align: center;
+    padding-top: 1em;
+    width: 15em;
+
+    &.focused {
+        outline: 1px solid blue;
+        outline: -webkit-focus-ring-color auto 5px;
+        background: rgba(99, 46, 27, 0.675);
+        color: white;
+    }
 
     &:focus, &:hover {
         outline: 1px solid blue;
@@ -36,8 +45,4 @@ export const Input = styled.input.attrs({
     overflow: hidden;
     position: absolute;
     z-index: -1;
-
-    &::before {
-        contents: "
-    }
 `

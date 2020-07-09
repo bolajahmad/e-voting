@@ -1,15 +1,29 @@
 import styled from 'styled-components'
 
+import { StyledButton } from '../../atoms/buttons/buttons.styles'
 
-export const Div = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 0.5em;
-    margin: 1em 0;
-    justify-content: space-between;
-    padding: 0 1em;
-    width: auto;
-    height: auto;
+export const Wrapper = styled.div`
+    
+`
+
+export const FormBox = styled.div`
+    width: 60%;
+    margin: 2em auto;
+`
+
+export const SelectBox = styled.div`
+    width: 30%;
+`
+
+export const Form = styled.form`
+    width: 100%;
+    padding: 2em;
+`
+
+export const SpecialButton = styled(StyledButton)`
+    width: 40%;
+    height: 3em;
+    margin-left: 1em;
 `
 
 export const Label = styled.label`

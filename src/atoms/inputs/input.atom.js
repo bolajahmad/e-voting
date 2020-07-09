@@ -3,7 +3,7 @@ import React from 'react'
 import { Div, Label, Input, } from './input.styles'
 
 
-const InputField = ({ children, id, name, type, otherProps }) => {
+const InputField = ({ children, id, name, type, ...otherProps }) => {
     return (
         <Div>
             <Label htmlFor={id}>

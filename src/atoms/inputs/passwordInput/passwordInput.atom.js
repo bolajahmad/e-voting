@@ -21,7 +21,7 @@ const PasswordInputField = ({ children, otherProps }) => {
     return (
         <Wrapper>
             <Label htmlFor="password">
-                {children}
+                {children} 
             </Label>
 
             <Div>
