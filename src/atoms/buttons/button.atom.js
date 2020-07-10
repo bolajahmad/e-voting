@@ -3,9 +3,9 @@ import React from 'react'
 import { StyledButton } from './buttons.styles'
 
 
-const Button = ({ children, ...allProps }) => {
+const Button = ({ onClick, children, otherProps }) => {
     return (
-        <StyledButton onClick={onClick} {...allProps}>
+        <StyledButton onClick={onClick} {...otherProps}>
             {children}
         </StyledButton>
     )
