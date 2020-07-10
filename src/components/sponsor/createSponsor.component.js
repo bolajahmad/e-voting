@@ -3,7 +3,10 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useStep } from 'react-hooks-helper'
 
-import { Wrapper, FormBox, Form, SelectBox, SpecialButton } from './createSponsor.styles'
+import { Wrapper, FormBox, Form, SpecialButton } from './createSponsor.styles'
+
+import NameSlide from '../../sponsorSlides/name.slide'
+import GenderSlide from '../../sponsorSlides/gender.slide'
 
 import InputField from '../../atoms/inputs'
 import TextField from '../../atoms/inputs/textField'
@@ -13,6 +16,7 @@ import Navbar from '../../molecules/navbar'
 
 
 const CreateSponsor = () => {
+    const [ sex, setSex ] = useState("")
     const [ isFemale, setIsFemale ] = useState(false);
     const [ countries, setCountries ] = useState([]);
 
@@ -53,68 +57,13 @@ const CreateSponsor = () => {
             <FormBox>
                 {
                     index === 0 && (
-                        <Form>
-                            <SelectBox>
-                                <InputField type="text" name="title" id="title" list="choose-title">
-                                    Title
-                                </InputField>
-
-                                <datalist id="choose-title">
-                                    <option value="Mr." />
-                                    <option value="Mrs." />
-                                    <option value="Miss" />
-                                </datalist>
-                            </SelectBox>
-
-                            <InputField type="text" name="lastName" id="lastName">
-                                Last Name
-                            </InputField>
-
-                            <InputField type="text" name="firstName" id="firstName">
-                                First Name
-                            </InputField>
-                        </Form>
+                        <NameSlide />
                     )
                 }
 
                 {
                     index === 1 && (
-                        <Form>
-                            <fieldset>
-                                <legend>Select Your Gender:</legend>
-
-                                <div>
-                                    <input type="radio" name="gender" id="male" value="Male" onClick={e => {
-                                        e.preventDefault();
-                                        setIsFemale(true);
-                                    }} />
-                                    <label htmlFor="male"> Male</label>
-
-                                    
-                                    <input type="radio" name="gender" id="female" value="Female" onClick={e => {
-                                        e.preventDefault();
-                                        setIsFemale(true);}} />
-                                    <label htmlFor="female">
-                                        Female
-                                    </label>
-
-                                    <input type="radio" name="gender" id="others" value="Others"
-                                        onClick={e => {
-                                            e.preventDefault();
-                                            setIsFemale(true);
-                                    }} />
-                                    <label htmlFor="others">Others</label>
-                                </div>
-                                
-                                {
-                                    (!isFemale) ? null : (
-                                        <InputField type="text" id="maidenName" name="maidenName">
-                                            Maiden name
-                                        </InputField>
-                                    )
-                                }
-                            </fieldset>
-                        </Form>
+                        <GenderSlide sex={sex} setSex={setSex} />
                     )
                 }
 
