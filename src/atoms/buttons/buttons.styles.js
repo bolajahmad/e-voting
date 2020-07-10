@@ -3,14 +3,15 @@ import styled from 'styled-components'
 export const StyledButton = styled.button`
     height: 3em;
     width: 100%;
-    background: rgb(236, 226, 132);
-    border: 0.05em solid white;
-    border-radius: 1em 1em;
+    background: rgb(237, 25, 68);
+    border: 0.05em solid rgb(247, 246, 241);
+    border-radius: 0.5em;
     font-size: 1rem;
-    color: rgba(129, 33, 129, 1);
+    color: rgb(247, 246, 241);
     transition: all 1s ease;
 
     :focus, :hover {
-        transform: scale(1.02);
+        background: rgba(237, 25, 68, 0.85);
+        color: rgba(247, 246, 241, 0.675);
     }
 `

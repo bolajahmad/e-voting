@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
+import axios from 'axios'
 import { useStep } from 'react-hooks-helper'
 
 import { Wrapper, FormBox, Form, SelectBox, SpecialButton } from './createSponsor.styles'
@@ -13,8 +14,30 @@ import Navbar from '../../molecules/navbar'
 
 const CreateSponsor = () => {
     const [ isFemale, setIsFemale ] = useState(false);
+    const [ countries, setCountries ] = useState([]);
 
     const { index, navigation: { next, previous } } = useStep({steps: 10});
+
+    /* useEffect(() => {
+        axios.get("http://restcountries.eu/rest/v2/all?fields=name")
+        .then(res => {
+            let countryData = res.data;
+            console.log(countryData)
+            
+            setCountries(countries => [...countries, countryData]);
+        }
+       }, [countries]) */
+
+       const getCountries = () => {
+           axios.get("http://restcountries.eu/rest/v2/all?fields=name")
+            .then(res => {
+                let countryData = res.data;
+                console.log(countryData);
+
+                setCountries(countries => [...countries, countryData]);
+                console.log(countries);
+            })
+       }
 
     return (
         <Wrapper>
@@ -164,22 +187,19 @@ const CreateSponsor = () => {
                 {
                    index === 6 && (
                        <Form>
-                           <InputField type="text" id="country" name="country" list="countries">
+                           <InputField type="text" id="country" name="country"
+                           onFocus={getCountries} list="countries">
                                Nationality
                            </InputField>
 
                            <datalist id="countries">
-                               <option value="Afghanistan" />
-                               <option value="Brazil" />
-                               <option value="China" />
-                               <option value="Denmark" />
-                               <option value="Egypt" />
-                               <option value="Hungary" />
-                               <option value="Germany" />
-                               <option value="Nigeria" />
-                               <option value="Ghana" />
-                               <option value="Japan" />
-                               <option value="USA" />
+                               {
+                                   countries.map((country, i) => {
+                                       return (
+                                           <option value={country} key={i} />
+                                       )
+                                   })
+                               }
                            </datalist>
                        </Form>
                    ) 
