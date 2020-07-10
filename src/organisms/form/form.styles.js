@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 
 export const FormWrapper = styled.form`
-    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: center;
