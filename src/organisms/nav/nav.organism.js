@@ -8,11 +8,11 @@ const NavMenu = () => {
         <Nav>
             <Menu>
                 <NavItem>
-                    <NavLink to="/sponsor">Create A Sponsor</NavLink>
+                    <NavLink to="sponsor">Create A Sponsor</NavLink>
                 </NavItem>
 
                 <NavItem>
-                    <NavLink to="/sponsor">Login</NavLink>
+                    <NavLink to="sponsor">Login</NavLink>
                 </NavItem>
             </Menu>
         </Nav>
