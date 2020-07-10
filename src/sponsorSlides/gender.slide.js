@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { RadioBox, Fieldset, Legend } from 'slide.styles'
+import { RadioBox, Fieldset, Legend } from './slide.styles'
 
 import Form from '../organisms/form'
 import InputField from '../atoms/inputs'
@@ -22,7 +22,7 @@ const GenderSlide = ({ sex, setSex }) => {
                     <InputField type="radio" name="gender" id="female" 
                     value="female" onChange={e  => setSex(e.target.value)} 
                     checked={sex === "female"}>
-                        Feale
+                        Female
                     </InputField>
 
                     <InputField type="radio" name="gender" id="others" 
@@ -33,7 +33,7 @@ const GenderSlide = ({ sex, setSex }) => {
                 </RadioBox>
 
                 {
-                    (sex !== "male") ? (
+                    (sex === "female" || sex === "others") ? (
                         <InputField type="text" name="maidenName" id="maidenName">
                             Maiden Name (If you have one):
                         </InputField>
@@ -43,3 +43,5 @@ const GenderSlide = ({ sex, setSex }) => {
         </Form>
     )
 }
+
+export default GenderSlide;

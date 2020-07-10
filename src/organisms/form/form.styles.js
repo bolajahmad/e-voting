@@ -7,6 +7,6 @@ export const FormWrapper = styled.form`
     justify-content: center;
     width: 100%;
     padding: 0 3em;
-    min-height: 10em;
+    min-height: 20em;
 `
 

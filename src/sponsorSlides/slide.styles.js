@@ -11,9 +11,19 @@ export const RadioBox = styled.div`
 `
 
 export const Fieldset = styled.fieldset`
-
+    border: none;
 `
 
 export const Legend = styled.legend`
+    font-size: 2rem;'
+    font-weight: 700;
+`
+
+export const BirthdayInputBox = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+`
+
+export const ContactInputBox = styled.div`
 
 `

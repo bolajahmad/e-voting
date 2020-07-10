@@ -7,6 +7,12 @@ import { Wrapper, FormBox, Form, SpecialButton } from './createSponsor.styles'
 
 import NameSlide from '../../sponsorSlides/name.slide'
 import GenderSlide from '../../sponsorSlides/gender.slide'
+import BirthdaySlide from '../../sponsorSlides/birthday.slide'
+import ProfessionSlide from '../../sponsorSlides/profession.slide'
+import RelationshipSlide from '../../sponsorSlides/relationship.slide'
+import ContactSlide from '../../sponsorSlides/contact.slide'
+import NationalitySlide from '../../sponsorSlides/nationality.slide'
+import AddressSlide from '../../sponsorSlides/address.slide'
 
 import InputField from '../../atoms/inputs'
 import TextField from '../../atoms/inputs/textField'
@@ -16,8 +22,7 @@ import Navbar from '../../molecules/navbar'
 
 
 const CreateSponsor = () => {
-    const [ sex, setSex ] = useState("")
-    const [ isFemale, setIsFemale ] = useState(false);
+    const [ sex, setSex ] = useState("");
     const [ countries, setCountries ] = useState([]);
 
     const { index, navigation: { next, previous } } = useStep({steps: 10});
@@ -69,103 +74,37 @@ const CreateSponsor = () => {
 
                 {
                     index === 2 && (
-                        <Form>
-                            <fieldset>
-                                <legend>Enter your Date of Birth</legend>
-
-                                <InputField type="number" name="day" id="day">
-                                    Day
-                                </InputField>
-
-                                <InputField type="number" name="month" id="month">
-                                    Month
-                                </InputField>
-
-                                <InputField type="number" name="year" id="year">
-                                    Year
-                                </InputField>
-                            </fieldset>
-                        </Form>
+                        <BirthdaySlide />
                     )
                 }
 
                 {
                     index === 3 && (
-                        <Form>
-                            <InputField type="text" name="occupation" id="occupation">
-                                Profession
-                            </InputField>
-                        </Form>
+                        <ProfessionSlide />
                     )
                 }
 
                 {
                     index === 4 && (
-                        <Form>
-                            <InputField type="text" name="maritalStatus" id="maritalStatus" list="marital-status">
-                                Relationship Status
-                            </InputField>
-
-                            <datalist id="marital-status">
-                                <option value="single" />
-                                <option value="married" />
-                                <option value="divorced" />
-                            </datalist>
-                        </Form>
+                        <RelationshipSlide />
                     )
                 }
 
                 {
                     index === 5 && (
-                        <Form>
-                            <fieldset>
-                                <legend>How can our team contact you?</legend>
-
-                                <InputField type="email" name="email" id="email">
-                                    Email
-                                </InputField>
-
-                                <InputField type="tel" name="tel" id="telephone">
-                                    Phone number (OPTIONAL)
-                                </InputField>
-                            </fieldset>
-                        </Form>
+                        <ContactSlide />
                     )
                 }
 
                 {
                    index === 6 && (
-                       <Form>
-                           <InputField type="text" id="country" name="country"
-                           onFocus={getCountries} list="countries">
-                               Nationality
-                           </InputField>
-
-                           <datalist id="countries">
-                               {
-                                   countries.map((country, i) => {
-                                       return (
-                                           <option value={country} key={i} />
-                                       )
-                                   })
-                               }
-                           </datalist>
-                       </Form>
+                       <NationalitySlide />
                    ) 
                 }
 
                 {
                     index === 7 && (
-                        <Form>
-                            <TextField name="address" id="address">
-                                Residential Address
-                            </TextField>
-
-                            <label>
-                                <input type="checkbox" value="permanetAdd" />
-                                Use as my permanent address
-                            </label>
-                        </Form>
+                        <AddressSlide />
                     )
                 }
 
