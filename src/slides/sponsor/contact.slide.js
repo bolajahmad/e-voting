@@ -1,9 +1,9 @@
 import React from 'react'
 
-import { Fieldset, Legend, ContactInputBox } from './slide.styles'
+import { Fieldset, Legend, ContactInputBox } from '../slide.styles'
 
-import Form from '../organisms/form'
-import InputField from '../atoms/inputs'
+import Form from '../../organisms/form'
+import InputField from '../../atoms/inputs'
 
 
 const ContactSlide = () => {

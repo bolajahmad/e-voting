@@ -1,10 +1,10 @@
 import React from 'react'
 
-import { BirthdayInputBox, Fieldset, Legend } from './slide.styles'
+import { BirthdayInputBox, Fieldset, Legend } from '../slide.styles'
 
-import Form from '../organisms/form'
+import Form from '../../organisms/form'
 
-import InputField from '../atoms/inputs'
+import InputField from '../../atoms/inputs'
 
 
 const BirthdaySlide = () => {

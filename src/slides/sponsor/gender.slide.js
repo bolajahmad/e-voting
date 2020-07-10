@@ -1,9 +1,10 @@
 import React from 'react'
 
-import { RadioBox, Fieldset, Legend } from './slide.styles'
+import { RadioBox, Fieldset, Legend } from '../slide.styles'
 
-import Form from '../organisms/form'
-import InputField from '../atoms/inputs'
+import Form from '../../organisms/form'
+import RadioInput from '../../atoms/inputs/rcinput'
+import InputField from '../../atoms/inputs'
 
 
 const GenderSlide = ({ sex, setSex }) => {
@@ -13,23 +14,23 @@ const GenderSlide = ({ sex, setSex }) => {
                 <Legend>Select Your Gender:</Legend>
 
                 <RadioBox>
-                    <InputField type="radio" name="gender" id="male" 
+                    <RadioInput type="radio" name="gender"
                     value="male" onChange={e  => setSex(e.target.value)} 
                     checked={sex === "male"}>
                         Male
-                    </InputField>
+                    </RadioInput>
 
-                    <InputField type="radio" name="gender" id="female" 
+                    <RadioInput type="radio" name="gender"
                     value="female" onChange={e  => setSex(e.target.value)} 
                     checked={sex === "female"}>
                         Female
-                    </InputField>
+                    </RadioInput>
 
-                    <InputField type="radio" name="gender" id="others" 
+                    <RadioInput type="radio" name="gender"
                     value="others" onChange={e  => setSex(e.target.value)} 
                     checked={sex === "others"}>
                         Another gender
-                    </InputField>
+                    </RadioInput>
                 </RadioBox>
 
                 {

@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { TitleSelectBox } from './slide.styles'
+import { TitleSelectBox } from '../slide.styles'
 
-import Form from '../organisms/form';
-import InputField from '../atoms/inputs'
+import Form from '../../organisms/form';
+import InputField from '../../atoms/inputs'
 
 
 export const NameSlide = () => {

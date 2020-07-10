@@ -1,7 +1,8 @@
 import React from 'react'
 
-import Form from '../organisms/form'
-import InputField from '../atoms/inputs'
+import Form from '../../organisms/form'
+import InputField from '../../atoms/inputs'
+import RadioField from '../../atoms/inputs/rcinput'
 
 
 const AddressSlide = () => {
@@ -11,9 +12,9 @@ const AddressSlide = () => {
                 Residential Address
             </InputField>
 
-            <InputField type="checkbox" id="permanentAdd" value="permanetAdd">
+            <RadioField type="checkbox" id="permanentAdd" value="permanetAdd" onChange={e => e.target.value} checked={true}>
                 Use as my permanent address
-            </InputField>
+            </RadioField>
         </Form>
     )
 }

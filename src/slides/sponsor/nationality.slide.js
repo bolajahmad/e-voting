@@ -1,7 +1,7 @@
 import React from 'react'
 
-import Form from '../organisms/form'
-import InputField from '../atoms/inputs'
+import Form from '../../organisms/form'
+import InputField from '../../atoms/inputs'
 
 
 const NationalitySlide = () => {

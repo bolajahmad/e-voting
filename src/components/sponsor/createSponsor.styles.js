@@ -1,9 +1,10 @@
 import styled from 'styled-components'
 
+import { Link } from '@reach/router'
 import { StyledButton } from '../../atoms/buttons/buttons.styles'
 
 export const Wrapper = styled.div`
-    
+    position: relative;
 `
 
 export const FormBox = styled.div`
@@ -24,6 +25,10 @@ export const SpecialButton = styled(StyledButton)`
     width: 40%;
     height: 3em;
     margin-left: 1em;
+`
+
+export const StyledLink = styled(Link)`
+    margin-top: 3em;
 `
 
 export const Label = styled.label`

@@ -1,21 +1,16 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 
 import axios from 'axios'
 import { useStep } from 'react-hooks-helper'
 
-import { Wrapper, FormBox, Form, SpecialButton } from './createSponsor.styles'
+import { Wrapper, FormBox, SpecialButton, StyledLink } from './createSponsor.styles'
 
-import NameSlide from '../../sponsorSlides/name.slide'
-import GenderSlide from '../../sponsorSlides/gender.slide'
-import BirthdaySlide from '../../sponsorSlides/birthday.slide'
-import ProfessionSlide from '../../sponsorSlides/profession.slide'
-import RelationshipSlide from '../../sponsorSlides/relationship.slide'
-import ContactSlide from '../../sponsorSlides/contact.slide'
-import NationalitySlide from '../../sponsorSlides/nationality.slide'
-import AddressSlide from '../../sponsorSlides/address.slide'
+import {
+    NameSlide, GenderSlide, BirthdaySlide, ProfessionSlide, 
+    RelationshipSlide, ContactSlide, NationalitySlide, AddressSlide
+} from '../../slides/sponsor'
 
-import InputField from '../../atoms/inputs'
-import TextField from '../../atoms/inputs/textField'
+import Form from '../../organisms/form'
 import UploadFile from '../../atoms/inputs/uploadFileInput'
 
 import Navbar from '../../molecules/navbar'
@@ -25,7 +20,7 @@ const CreateSponsor = () => {
     const [ sex, setSex ] = useState("");
     const [ countries, setCountries ] = useState([]);
 
-    const { index, navigation: { next, previous } } = useStep({steps: 10});
+    const { index, navigation: { next } } = useStep({steps: 9});
 
     /* useEffect(() => {
         axios.get("http://restcountries.eu/rest/v2/all?fields=name")
@@ -52,12 +47,12 @@ const CreateSponsor = () => {
         <Wrapper>
             <Navbar />
 
-            <SpecialButton onClick={e => {
-                    e.preventDefault();
-                    previous();
-                    }}>
-                        Go Back
-                </SpecialButton>
+            <StyledLink to="/" /* onClick={e => {
+                e.preventDefault();
+                previous();
+                }} */>
+                    <img src={require(`../../images/left.svg`)} alt="back arrow icon" height="20" width="20" />Go Back
+            </StyledLink>
 
             <FormBox>
                 {
@@ -111,14 +106,6 @@ const CreateSponsor = () => {
                 {
                     index === 8 && (
                         <Form>
-                            <UploadFile accept="image/*">Upload a Picture</UploadFile>
-                        </Form>
-                    )
-                }
-
-                {
-                    index === 9 && (
-                        <Form>
                             <UploadFile accept="image/*, .pdf">Upload your signature</UploadFile>
                         </Form>
                     )
@@ -128,7 +115,7 @@ const CreateSponsor = () => {
                     e.preventDefault();
                     next();
                     }}>
-                        Continue
+                        Continue<img src={require(`../../images/right.svg`)} alt="continue arrow icon" height="20" width="20" />
                 </SpecialButton>
             </FormBox>
         </Wrapper>

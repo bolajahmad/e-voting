@@ -5,7 +5,7 @@ import { Div, Label, Input, } from './input.styles'
 
 const InputField = ({ children, id, name, type, ...otherProps }) => {
     return (
-        <Div type={type}>
+        <Div>
             <Label htmlFor={id}>
                 {children}
             </Label>
