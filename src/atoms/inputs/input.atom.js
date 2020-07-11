@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import { Div, Label, Input, } from './input.styles'
 
@@ -16,3 +17,9 @@ const InputField = ({ children, id, name, type, ...otherProps }) => {
 }
 
 export default InputField
+
+InputField.propTypes = {
+    id: PropTypes.string,
+    type: PropTypes.string,
+    name: PropTypes.string
+}

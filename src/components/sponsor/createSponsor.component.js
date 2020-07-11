@@ -3,16 +3,14 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { useStep } from 'react-hooks-helper'
 
-import { Wrapper, FormBox, SpecialButton, StyledLink } from './createSponsor.styles'
+import { Wrapper, FormBox, UploadArea, SpecialButton, StyledLink } from './createSponsor.styles'
 
 import {
-    NameSlide, GenderSlide, BirthdaySlide, ProfessionSlide, 
+    NameSlide, GenderSlide, BirthdaySlide, ProfessionSlide,
     RelationshipSlide, ContactSlide, NationalitySlide, AddressSlide
 } from '../../slides/sponsor'
 
-import Form from '../../organisms/form'
 import UploadFile from '../../atoms/inputs/uploadFileInput'
-
 import Navbar from '../../molecules/navbar'
 
 
@@ -105,9 +103,11 @@ const CreateSponsor = () => {
 
                 {
                     index === 8 && (
-                        <Form>
-                            <UploadFile accept="image/*, .pdf">Upload your signature</UploadFile>
-                        </Form>
+                        <UploadArea>
+                            <UploadFile accept="image/*, .pdf, .doc">
+                                Click to select file
+                            </UploadFile>
+                        </UploadArea>
                     )
                 }
 

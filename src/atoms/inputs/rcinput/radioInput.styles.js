@@ -8,10 +8,10 @@ export const Div = styled.div`
     height: auto;
 `
 
-export const Label = styled.label`
+export const RadioLabel = styled.label`
 
 `
 
-export const Input = styled.input`
+export const RadInput = styled.input`
 
 `

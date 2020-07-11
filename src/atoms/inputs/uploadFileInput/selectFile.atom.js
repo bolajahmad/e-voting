@@ -1,34 +1,32 @@
 import React, { useState } from 'react'
 
 import { Form, Label, Input } from './selectFile.styles'
+import Paragraph from '../../paragraph'
 
 
 const UploadFile = ({ children, ...otherProps }) => {
     const [ labelState, setLabelState ] = useState("");  
-    const [selectedFile, setSelectedFile] = useState('');
+    const [selectedFile, setSelectedFile] = useState(null);
 
     const handleChange = e => {
         e.preventDefault();
-        let selection = [];
-        let file = e.target.files;
+        
+        setSelectedFile(e.target.files[0])
+    }
 
-        for (let i = 0; i < file.length; i++) {
-            selection.push(file[i].name);
-            console.log(file[i].name);
-            console.log(selectedFile);
-        }
-
-        setSelectedFile("select");
-        console.log(selectedFile);
+    const fileData = () => {
+        return (selectedFile) ? 
+        (<div>
+            <Paragraph align="center" size={2} weight={700}>
+                File selected: {selectedFile.name}
+            </Paragraph>
+        </div>) : null
     }
 
     return (
         <>
-            <ul id="uploads">
-                <li>{}</li>
-            </ul>
-
             <Form enctype="multipart/form-data">
+                {fileData()}
                 <Label className={(labelState === "focused") ? "focused" : ""} as="label" htmlFor="uploadFile" id="uploadLabel">
                     {children}
                 </Label>
@@ -41,11 +39,11 @@ const UploadFile = ({ children, ...otherProps }) => {
                         e.preventDefault();
                         setLabelState("");
                     }}
-                    id="uploadFile" onChange={handleChange} multiple {...otherProps}
+                    id="uploadFile" onChange={handleChange} {...otherProps}
                 />
             </Form>
         </>
     )
 }
-
+ 
 export default UploadFile
