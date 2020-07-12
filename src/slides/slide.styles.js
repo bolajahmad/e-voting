@@ -26,7 +26,8 @@ export const Legend = styled.legend`
 
 export const BirthdayInputBox = styled.div`
     display: flex;
-    justify-content: center;
+     align-items: center;
+    justify-content: space-between;
 `
 
 export const ContactInputBox = styled.div`
