@@ -12,7 +12,8 @@ const useFetch = ({ URL }) => {
 setIsLoading(true);
             axios.get(URL)
                 .then(res => {
-                    setResponse(res.data)
+                    setResponse(res.data);
+                    setIsLoading(false);
                 }).catch(err => {
                     setError(err)
                 })
@@ -21,7 +22,6 @@ setIsLoading(true);
     useEffect(() => {
 
         getResponseData();
-        setIsLoading(false);
         
     }, []);
 
