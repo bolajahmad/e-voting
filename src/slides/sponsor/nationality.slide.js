@@ -23,10 +23,10 @@ const NationalitySlide = ({ countries }) => {
                         })
                     ) : (
 <>
-<option value="Germany">
-    <option value="France">
-    <option value="Nigeria">
-    <option value="China">
+<option value="Germany" />
+    <option value="France" />
+    <option value="Nigeria" />
+    <option value="China" />
 </>
 
 )
