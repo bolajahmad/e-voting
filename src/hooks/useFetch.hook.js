@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
 
-const useFetch = ({ URL }) => {
+const useFetch = ( URL ) => {
     const [ response, setResponse ] = useState(null);
     const [ error, setError ] = useState(null);
     const [ isLoading, setIsLoading ] = useState(false);
