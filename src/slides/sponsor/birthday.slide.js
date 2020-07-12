@@ -9,7 +9,7 @@ import InputField from '../../atoms/inputs'
 
 const BirthdaySlide = () => {
     return (
-        <Form>
+        <Form direction="row">
             <Fieldset>
                 <Legend>Enter your Date of Birth</Legend>
 
