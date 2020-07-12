@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 import revealPassword from './revealPassword'
 
-import { Wrapper, Label, Div, Input, Button } from './passwordInput.styles'
+import { Label, Div, Input, Button } from './passwordInput.styles'
 
 
 const PasswordInputField = ({ children, otherProps }) => {
@@ -13,13 +13,11 @@ const PasswordInputField = ({ children, otherProps }) => {
 
     const togglePassword = (e) => {
         e.preventDefault()
-        
-
         revealPassword(data, setData);
     }
 
     return (
-        <Wrapper>
+        <>
             <Label htmlFor="password">
                 {children} 
             </Label>
@@ -33,7 +31,7 @@ const PasswordInputField = ({ children, otherProps }) => {
                     }
                 </Button>
             </Div>
-        </Wrapper>
+        </>
     )
 }
 

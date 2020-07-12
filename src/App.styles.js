@@ -41,7 +41,7 @@ ul, li {
 input, textarea {
   font-weight: 800;
   color: rgb(37, 33, 34);
-  width: auto;
+  width: 100%;
   padding: 1em;
   font-size: 1rem;
   background: none; 

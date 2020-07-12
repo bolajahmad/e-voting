@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { Form, Label, Input } from './selectFile.styles'
+import { Label, Input } from './selectFile.styles'
 import Paragraph from '../../paragraph'
 
 
@@ -25,23 +25,21 @@ const UploadFile = ({ children, ...otherProps }) => {
 
     return (
         <>
-            <Form enctype="multipart/form-data">
-                {fileData()}
-                <Label className={(labelState === "focused") ? "focused" : ""} as="label" htmlFor="uploadFile" id="uploadLabel">
-                    {children}
-                </Label>
+            {fileData()}
+            <Label className={(labelState === "focused") ? "focused" : ""} as="label" htmlFor="uploadFile" id="uploadLabel">
+                {children}
+            </Label>
 
-                <Input type="file" name="uploadFile"
-                    onFocus={e => {
-                        e.preventDefault();
-                        setLabelState("focused");
-                    }} onBlur={e => {
-                        e.preventDefault();
-                        setLabelState("");
-                    }}
-                    id="uploadFile" onChange={handleChange} {...otherProps}
-                />
-            </Form>
+            <Input type="file" name="uploadFile"
+                onFocus={e => {
+                    e.preventDefault();
+                    setLabelState("focused");
+                }} onBlur={e => {
+                    e.preventDefault();
+                    setLabelState("");
+                }}
+                id="uploadFile" onChange={handleChange} {...otherProps}
+            />
         </>
     )
 }

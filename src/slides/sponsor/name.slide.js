@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { TitleSelectBox } from '../slide.styles'
+import { Div } from '../slide.styles'
 
 import Form from '../../organisms/form';
 import InputField from '../../atoms/inputs'
@@ -9,7 +9,7 @@ import InputField from '../../atoms/inputs'
 export const NameSlide = () => {
     return (
         <Form direction="row">
-            <TitleSelectBox>
+            <Div width="20%">
                 <InputField type="text" name="title" id="title" list="choose-title">
                     Title
                 </InputField>
@@ -19,15 +19,19 @@ export const NameSlide = () => {
                     <option value="Mrs." />
                     <option value="Miss" />
                 </datalist>
-            </TitleSelectBox>
+            </Div>
 
-            <InputField type="text" name="lastName" id="lastName">
-                Last Name
-            </InputField>
+            <Div width="30%">
+                <InputField type="text" name="lastName" id="lastName">
+                    Last Name
+                </InputField>
+            </Div>
 
-            <InputField type="text" name="firstName" id="firstName">
-                First Name
-            </InputField>
+            <Div width="30%">
+                <InputField type="text" name="firstName" id="firstName">
+                    First Name
+                </InputField>
+            </Div>
         </Form>
     )
 }

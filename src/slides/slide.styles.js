@@ -2,7 +2,12 @@ import styled from 'styled-components'
 
 
 export const TitleSelectBox = styled.div`
-    width: 30%;
+    width: 25%;
+`
+
+export const Div = styled.div`
+    width: ${props => props.width};
+    height: auto;
 `
 
 export const RadioBox = styled.div`

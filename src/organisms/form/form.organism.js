@@ -4,9 +4,9 @@ import PropTypes from 'prop-types'
 import { FormWrapper } from './form.styles'
 
 
-const Form = ({ children, direction }) => {
+const Form = ({ children, direction, ...otherProps }) => {
     return (
-        <FormWrapper direction={direction} role="form">
+        <FormWrapper direction={direction} {...otherProps} role="form">
             {children}
         </FormWrapper>
     )

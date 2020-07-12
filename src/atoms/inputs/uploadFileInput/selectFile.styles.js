@@ -2,14 +2,6 @@ import styled from 'styled-components'
 
 import { StyledButton } from '../../buttons/buttons.styles'
 
-
-export const Form = styled.form`
-    display: flex;
-    justify-content: center;
-    width: auto;
-    height: auto;
-`
-
 export const Label = styled(StyledButton)`
     cursor: pointer;
     font-size: 1rem;

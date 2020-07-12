@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useStep } from 'react-hooks-helper'
 
+import useFetch from '../../hooks/useFetch.hook'
+
 import { Wrapper, FormBox, UploadArea, SpecialButton, Div } from './createSponsor.styles'
 
 import {
@@ -18,26 +20,10 @@ import Form from '../../organisms/form'
 
 const CreateSponsor = () => {
     const [ sex, setSex ] = useState("");
-    const [ countries, setCountries ] = useState(null);
-    const [ error, setError ] = useState(null)
+
+    const { response, error } = useFetch("http://restcountries.eu/rest/v2/all?fields=name");
 
     const { index, navigation: { next, previous, go } } = useStep({steps: 9});
-
-    useEffect(() => {
-        const getCountries = async () => {
-            await axios.get("http://restcountries.eu/rest/v2/all?fields=name")
-                .then(res => {
-                    console.log(res.data)
-                    setCountries(res.data)
-                    console.log(countries)
-                }).catch(err => {
-                    setError(err)
-                    console.log(error)
-                })
-        }
-
-        getCountries()
-    }, []);
 
     return (
         <Wrapper>
@@ -91,7 +77,7 @@ const CreateSponsor = () => {
 
                 {
                    index === 6 && (
-                       <NationalitySlide countries={countries} />
+                       <NationalitySlide countries={response} error={error} />
                    ) 
                 }
 
@@ -103,7 +89,7 @@ const CreateSponsor = () => {
 
                 {
                     index === 8 && (
-                        <Form as="div">
+                        <Form enctype="multipart/form-data">
                             <UploadArea>
                                 <UploadFile accept="image/*, .pdf, .doc">
                                     Click to select file

@@ -1,23 +1,10 @@
 import styled from 'styled-components'
 
-
-export const Wrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 0.5em;
-    margin: 1em 0;
-    justify-content: space-between;
-    padding: 0 1em;
-    width: auto;
-    height: auto;
-`
-
 export const Label = styled.label`
     width: 100%;
     font-size: 1rem;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 0.1em;
+    display: block;
+    margin-bottom: 1em;
 `
 
 export const Div = styled.div`

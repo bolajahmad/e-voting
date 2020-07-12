@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
 `
 
 export const FormBox = styled.div`
-    width: 60%;
+    padding: 2em;
     margin: 2em auto;
 `
 
@@ -28,7 +28,7 @@ export const SpecialButton = styled(StyledButton)`
     background: rgba(255, 229, 229, 0.85);
     color: rgba(237, 25, 68, 0.675);
     border: 0.05em solid rgb(237, 25, 68);
-    visibility: ${props => (props.index === 0) ? "hidden" : "visible"};
+    visibility: ${props => (props.index === 0) ? "visible" : "visible"};
 
     &:hover, &:focus {
         background: rgb(255, 229, 229);
