@@ -8,7 +8,7 @@ import InputField from '../../atoms/inputs'
 
 export const NameSlide = () => {
     return (
-        <Form>
+        <Form direction="row">
             <TitleSelectBox>
                 <InputField type="text" name="title" id="title" list="choose-title">
                     Title
