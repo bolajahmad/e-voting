@@ -9,6 +9,7 @@ const useFetch = ({ URL }) => {
     const [ isLoading, setIsLoading ] = useState(false);
 
     const getResponseData = () => {
+setIsLoading(true);
             axios.get(URL)
                 .then(res => {
                     setResponse(res.data)
@@ -18,7 +19,6 @@ const useFetch = ({ URL }) => {
         }
 
     useEffect(() => {
-        setIsLoading(true);
 
         getResponseData();
         setIsLoading(false);
