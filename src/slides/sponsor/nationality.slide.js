@@ -21,7 +21,13 @@ const NationalitySlide = ({ countries }) => {
                         response.map((country, index) => {
                             return <option value={country.name} key={index} />
                         })
-                    ) : null
+                    ) : (
+    <option value="Germany">
+    <option value="France">
+    <option value="Nigeria">
+    <option value="China">
+
+)
                 }
             </datalist>
         </Form>
