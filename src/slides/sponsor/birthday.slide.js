@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { BirthdayInputBox, Fieldset, Legend } from '../slide.styles'
+import { BirthdayInputBox, Div, Fieldset, Legend } from '../slide.styles'
 
 import Form from '../../organisms/form'
 
@@ -14,17 +14,23 @@ const BirthdaySlide = () => {
                 <Legend>Enter your Date of Birth</Legend>
 
                 <BirthdayInputBox>
-                    <InputField type="number" name="day" id="day">
-                        Day
-                    </InputField>
+                    <Div width="30%">
+                       <InputField type="number" name="day" id="day">
+                          Day
+                       </InputField>
+                    </Div>
 
+                    <Div width="30%">
                     <InputField type="number" name="month" id="month">
                         Month
                     </InputField>
+                    </Div>
 
+                    <Div width="30%">
                     <InputField type="number" name="year" id="year">
                         Year
                     </InputField>
+                    </Div>
                 </BirthdayInputBox>
             </Fieldset>
         </Form>
