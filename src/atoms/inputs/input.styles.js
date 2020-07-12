@@ -5,9 +5,9 @@ export const Div = styled.div`
     display: flex;
     flex-direction: column;
     gap: 0.5em;
+    margin-block: 1em 0;
     margin: 1em 0;
     justify-content: space-between;
-    padding: 0 1em;
     width: auto;
     height: auto;
 `
@@ -15,7 +15,8 @@ export const Div = styled.div`
 export const Label = styled.label`
     display: flex;
     flex-direction: column;
-    margin-bottom: 1em;
+    margin-block-end: 0.5em;
+    margin-bottom: 0.5em;
 `
 
 export const Input = styled.input`

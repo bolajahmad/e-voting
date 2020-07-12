@@ -13,15 +13,31 @@ export const FormBox = styled.div`
 `
 
 export const UploadArea = styled.div`
-    width: 20em;
+    width: 100%;
+    height: 100%;
     background: rgb(220, 220, 220);
     border: 1px dashed pink;
 `
 
+export const Div = styled.div`
+    width: ${props => props.width};
+    margin: ${props => props.margin};
+`
+
 export const SpecialButton = styled(StyledButton)`
-    width: 40%;
-    height: 3em;
-    margin-left: 1em;
+    background: rgba(255, 229, 229, 0.85);
+    color: rgba(237, 25, 68, 0.675);
+    border: 0.05em solid rgb(237, 25, 68);
+    visibility: ${props => (props.index === 0) ? "hidden" : "visible"};
+
+    &:hover, &:focus {
+        background: rgb(255, 229, 229);
+        color: rgb(237, 25, 68);
+    }
+`
+
+export const ReversedSpecialButton = styled(StyledButton)`
+
 `
 
 export const StyledLink = styled(Link)`

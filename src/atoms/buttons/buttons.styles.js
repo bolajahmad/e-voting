@@ -8,10 +8,12 @@ export const StyledButton = styled.button`
     border-radius: 0.5em;
     font-size: 1rem;
     color: rgb(247, 246, 241);
+    box-shadow: none;
     transition: all 1s ease;
     
     :focus, :hover {
         background: rgba(237, 25, 68, 0.85);
         color: rgba(247, 246, 241, 0.675);
+        box-shadow: 0 0 0.5em 0.5em silver;
     }
 `

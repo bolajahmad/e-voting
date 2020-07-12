@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import axios from 'axios'
 import { useStep } from 'react-hooks-helper'
 
-import { Wrapper, FormBox, UploadArea, SpecialButton, StyledLink } from './createSponsor.styles'
+import { Wrapper, FormBox, UploadArea, SpecialButton, Div } from './createSponsor.styles'
 
 import {
     NameSlide, GenderSlide, BirthdaySlide, ProfessionSlide,
@@ -11,46 +11,46 @@ import {
 } from '../../slides/sponsor'
 
 import UploadFile from '../../atoms/inputs/uploadFileInput'
+import Button from '../../atoms/buttons'
 import Navbar from '../../molecules/navbar'
+import Form from '../../organisms/form'
 
 
 const CreateSponsor = () => {
     const [ sex, setSex ] = useState("");
-    const [ countries, setCountries ] = useState([]);
+    const [ countries, setCountries ] = useState(null);
+    const [ error, setError ] = useState(null)
 
-    const { index, navigation: { next } } = useStep({steps: 9});
+    const { index, navigation: { next, previous, go } } = useStep({steps: 9});
 
-    /* useEffect(() => {
-        axios.get("http://restcountries.eu/rest/v2/all?fields=name")
-        .then(res => {
-            let countryData = res.data;
-            console.log(countryData)
-            
-            setCountries(countries => [...countries, countryData]);
+    useEffect(() => {
+        const getCountries = async () => {
+            await axios.get("http://restcountries.eu/rest/v2/all?fields=name")
+                .then(res => {
+                    console.log(res.data)
+                    setCountries(res.data)
+                    console.log(countries)
+                }).catch(err => {
+                    setError(err)
+                    console.log(error)
+                })
         }
-       }, [countries]) */
 
-       const getCountries = () => {
-           axios.get("http://restcountries.eu/rest/v2/all?fields=name")
-            .then(res => {
-                let countryData = res.data;
-                console.log(countryData);
-
-                setCountries(countries => [...countries, countryData]);
-                console.log(countries);
-            })
-       }
+        getCountries()
+    }, []);
 
     return (
         <Wrapper>
             <Navbar />
 
-            <StyledLink to="/" /* onClick={e => {
-                e.preventDefault();
-                previous();
-                }} */>
-                    <img src={require(`../../images/left.svg`)} alt="back arrow icon" height="20" width="20" />Go Back
-            </StyledLink>
+            <Div width={"20%"}>
+                <SpecialButton index={index} onClick={e => {
+                    e.preventDefault();
+                    previous();
+                    }}>
+                        <img src={require(`../../images/left.svg`)} alt="back arrow icon" height="20" width="20" />Go Back
+                </SpecialButton>
+            </Div>
 
             <FormBox>
                 {
@@ -91,7 +91,7 @@ const CreateSponsor = () => {
 
                 {
                    index === 6 && (
-                       <NationalitySlide />
+                       <NationalitySlide countries={countries} />
                    ) 
                 }
 
@@ -103,20 +103,26 @@ const CreateSponsor = () => {
 
                 {
                     index === 8 && (
-                        <UploadArea>
-                            <UploadFile accept="image/*, .pdf, .doc">
-                                Click to select file
-                            </UploadFile>
-                        </UploadArea>
+                        <Form as="div">
+                            <UploadArea>
+                                <UploadFile accept="image/*, .pdf, .doc">
+                                    Click to select file
+                                </UploadFile>
+                            </UploadArea>
+                        </Form>
                     )
                 }
 
-                <SpecialButton onClick={e => {
-                    e.preventDefault();
-                    next();
-                    }}>
-                        Continue<img src={require(`../../images/right.svg`)} alt="continue arrow icon" height="20" width="20" />
-                </SpecialButton>
+                <Div width="40%" margin='1em 3em 0'>
+                    <Button onClick={e => {
+                        e.preventDefault();
+                        (index === 8) ? go() : next();
+                        }}>
+                            {
+                                (index === 8) ? "Create Sponsor" : "Continue"
+                            }<img src={require(`../../images/right.svg`)} alt="continue arrow icon" height="20" width="20" />
+                    </Button>
+                </Div>
             </FormBox>
         </Wrapper>
     )
