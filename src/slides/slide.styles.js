@@ -25,8 +25,8 @@ export const Legend = styled.legend`
 `
 
 export const BirthdayInputBox = styled.div`
-    display: grid;
-    grid-template-columns: 1fr 1fr 2fr;
+    display: flex;
+    justify-content: center;
 `
 
 export const ContactInputBox = styled.div`
