@@ -18,8 +18,19 @@ import Form from '../../organisms/form'
 
 const CreateSponsor = () => {
     const [ sex, setSex ] = useState("");
+    const [ countries, setCountries ] = useState(null)
+    const [ error, setError ] = useState(null)
 
     const { index, navigation: { next, previous, go } } = useStep({steps: 9});
+
+    useEffect(() => {
+        axios.get("http://restcountries.eu/rest/v2/all?fields=name")
+            .then(res => {
+                setCountries(res.data)
+            }).catch(err => {
+                setError(err)
+            })
+    }, [])
 
     return (
         <Wrapper>
@@ -73,7 +84,7 @@ const CreateSponsor = () => {
 
                 {
                    index === 6 && (
-                       <NationalitySlide />
+                       <NationalitySlide countries={countries} error={error} />
                    ) 
                 }
 
