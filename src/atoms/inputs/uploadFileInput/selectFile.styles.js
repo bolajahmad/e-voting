@@ -9,9 +9,8 @@ export const Label = styled(StyledButton)`
     color: rgb(99, 46, 27);
     background: rgba(99, 46, 27, 0.265);
     border-radius: 1em;
-    text-align: center;
-    padding-top: 1em;
-    width: 15em;
+    padding: 1em;
+    width: auto;
 
     &.focused {
         outline: 1px solid blue;

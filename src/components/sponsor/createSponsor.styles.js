@@ -13,9 +13,12 @@ export const FormBox = styled.div`
 `
 
 export const UploadArea = styled.div`
-    width: 100%;
-    height: 100%;
-    background: rgb(220, 220, 220);
+    width: 50%;
+    height: 15em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(240, 220, 210);
     border: 1px dashed pink;
 `
 

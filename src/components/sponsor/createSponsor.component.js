@@ -10,6 +10,8 @@ import {
     RelationshipSlide, ContactSlide, NationalitySlide, AddressSlide
 } from '../../slides/sponsor'
 
+import { Fieldset, Legend } from '../../slides/slide.styles'
+
 import UploadFile from '../../atoms/inputs/uploadFileInput'
 import Button from '../../atoms/buttons'
 import Navbar from '../../molecules/navbar'
@@ -36,7 +38,7 @@ const CreateSponsor = () => {
         <Wrapper>
             <Navbar />
 
-            <Div width={"20%"}>
+            <Div width={"20%"}> 
                 <SpecialButton index={index} onClick={e => {
                     e.preventDefault();
                     previous();
@@ -47,19 +49,19 @@ const CreateSponsor = () => {
 
             <FormBox>
                 {
-                    index === 0 && (
+                    index === 1 && (
                         <NameSlide />
                     )
                 }
 
                 {
-                    index === 1 && (
+                    index === 8 && (
                         <GenderSlide sex={sex} setSex={setSex} />
                     )
                 }
 
                 {
-                    index === 2 && (
+                    index === 0 && (
                         <BirthdaySlide />
                     )
                 }
@@ -95,21 +97,25 @@ const CreateSponsor = () => {
                 }
 
                 {
-                    index === 8 && (
+                    index === 2 && (
                         <Form enctype="multipart/form-data">
-                            <UploadArea>
-                                <UploadFile accept="image/*, .pdf, .doc">
-                                    Click to select file
-                                </UploadFile>
-                            </UploadArea>
+                            <Fieldset>
+                                <Legend>Provide signture, choose either an image, a .PDF or .DOC:</Legend>
+                                
+                                <UploadArea>
+                                    <UploadFile accept="image/*, .pdf, .doc">
+                                        Click to select file
+                                    </UploadFile>
+                                </UploadArea>
+                            </Fieldset>
                         </Form>
                     )
                 }
 
-                <Div width="40%" margin='1em 3em 0'>
+                <Div width="30%" margin='1em 3em 0 5em'>
                     <Button onClick={e => {
                         e.preventDefault();
-                        (index === 8) ? go() : next();
+                        (index === 8) ? alert("submitted") : next();
                         }}>
                             {
                                 (index === 8) ? "Create Sponsor" : "Continue"

@@ -21,15 +21,9 @@ export const NameSlide = () => {
                 </datalist>
             </Div>
 
-            <Div width="30%">
-                <InputField type="text" name="lastName" id="lastName">
-                    Last Name
-                </InputField>
-            </Div>
-
-            <Div width="30%">
-                <InputField type="text" name="firstName" id="firstName">
-                    First Name
+            <Div width="70%">
+                <InputField type="text" name="fullName" id="fullName">
+                    Full Name (Last Name or Surname first)
                 </InputField>
             </Div>
         </Form>
